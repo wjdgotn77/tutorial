@@ -1,6 +1,8 @@
+import NavBar from '../Components/NavBar';
 export default function Home() {
   return (
     <div>
+      <NavBar />
       <h1>헬로</h1>
     </div>
   );
