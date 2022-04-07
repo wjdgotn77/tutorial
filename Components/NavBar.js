@@ -19,7 +19,6 @@ export default function NavBar() {
         }
         a {
           text-decoration: none;
-          color: black;
         }
         .active {
           color: yellow;
