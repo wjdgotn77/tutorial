@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import styles from '../styles/NavBar.module.css';
-
 export default function NavBar() {
   // path관련 정보를 얻을 수 있따.
   const router = useRouter();
@@ -10,19 +8,23 @@ export default function NavBar() {
   return (
     <nav>
       <Link href="/">
-        <a
-          className={`${styles.link} ${
-            router.pathname === '/' ? styles.active : ''
-          }`}
-        >
-          Home
-        </a>
+        <a className={router.pathname === '/' ? 'active' : ''}>Home</a>
       </Link>
       <Link href="/about">
-        <a className={router.pathname === '/about' ? styles.active : ''}>
-          About
-        </a>
+        <a className={router.pathname === '/about' ? 'active' : ''}>About</a>
       </Link>
+      <style jsx>{`
+        nav {
+          background-color: tomato;
+        }
+        a {
+          text-decoration: none;
+          color: black;
+        }
+        .active {
+          color: yellow;
+        }
+      `}</style>
     </nav>
   );
 }
@@ -50,3 +52,5 @@ export default function NavBar() {
 // 두가지의 className을 함께 쓰려면
 // 1. {`${첫번째} ${두번째}`}
 // 2. {[첫번째, 두번째].join(" ")}
+
+// styled jsx => Next 고유의 방식
